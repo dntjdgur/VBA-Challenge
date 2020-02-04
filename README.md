@@ -13,7 +13,6 @@
 
 ###### The following codes are used to set up the forloops in the script:
 
-####### 
                 For i = 2 To Lastrow:
                
                     If Cells(i + 1, 1).Value <> Cells(i, 1).Value Then
@@ -37,4 +36,4 @@
                         datas = datas + 1
                         volume = 0
                         
-####### The script automatically applies to all worksheets in active state.
+###### The script automatically applies to all worksheets in active state.
