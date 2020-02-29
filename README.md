@@ -1,18 +1,47 @@
 # VBA-Challenge
 
-#### See below link to obtain the original data sheet to run the script:
+## Prerequisites
+Visual Basic needs to be installed to run the scripts, and this can be installed within Excel.
+
+### See below link to obtain the original data sheet to run the script:
 #### [SHARED LINK] https://drive.google.com/open?id=1mgT9x6cVZKlJ7A1nQLepDLdS-o9VDFk5
 
-###### When the scripts are run with the shared data sheet, the followings are the results:
+#### When the scripts are run with the shared data sheet, the followings are the results:
 
-###### ![VBA Script Sheets 2014](/images/Multiple_year_stock_data_2014.jpg)
+#### ![VBA Script Sheets 2014](/images/Multiple_year_stock_data_2014.jpg)
 
-###### ![VBA Script Sheets 2015](/images/Multiple_year_stock_data_2015.jpg)
+#### ![VBA Script Sheets 2015](/images/Multiple_year_stock_data_2015.jpg)
 
-###### ![VBA Script Sheets 2016](/images/Multiple_year_stock_data_2016.png)
+#### ![VBA Script Sheets 2016](/images/Multiple_year_stock_data_2016.png)
 
-###### The following codes are used to set up the forloops in the script:
+## Brief overview of running the script:
+                        
+### The following is the script to assign the worksheet to apply the changes made by running this vba file. The scripts within it is a forloop to set each variables' data types.
 
+```
+Sub Stock():
+
+'Setting variable for worksheet, to apply codes to each worksheet'
+
+   Dim ws As Worksheet      
+
+'Setting up Forloop through each worksheets'
+  
+       For Each ws In Worksheets:
+
+'Setting variables and data types, inserting Titles for each data columns'
+                      
+           Dim ticker As String
+           Dim year_change As Double
+           Dim percent_change As Double
+           Dim volume As Single
+           Dim decvolume As Double
+           decvolume = CDec(volume)
+```
+
+### The following script is to calculate the yearly change from opening price at the beginning of the year to closing price at the end of the year.
+
+```
                 For i = 2 To Lastrow:
                
                     If Cells(i + 1, 1).Value <> Cells(i, 1).Value Then
@@ -35,5 +64,4 @@
                         decvolume = ws.Cells(i, 7).Value + 1
                         datas = datas + 1
                         volume = 0
-                        
-###### The script automatically applies to all worksheets in active state.
+```
